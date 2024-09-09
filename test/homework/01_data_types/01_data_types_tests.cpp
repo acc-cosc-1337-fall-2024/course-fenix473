@@ -11,3 +11,7 @@ TEST_CASE("Verify sum_numbers function")
 	REQUIRE(add_numbers(10, 10) == 20);
 }
 
+TEST_CASE("Verify multiply function")
+{
+	REQUIRE(25 == multiply_numbers(5));
+}
