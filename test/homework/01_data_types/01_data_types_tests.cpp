@@ -5,13 +5,14 @@ TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
 
-TEST_CASE("Verify sum_numbers function") 
-{
-	REQUIRE(add_numbers(5, 5) == 10);
-	REQUIRE(add_numbers(10, 10) == 20);
-}
-
+//TESTING.
 TEST_CASE("Verify multiply function")
 {
+	//3 Testing scenarios. x == (parametr) * 5 (hardcoded value).
+	//5 * 5 = 25.
 	REQUIRE(25 == multiply_numbers(5));
+	//3 * 5 = 15
+	REQUIRE(15 == multiply_numbers(3));
+	//20 * 5 = 100
+	REQUIRE(100 == multiply_numbers(20));
 }
