@@ -8,7 +8,12 @@ using std::endl;
 
 int main()
 {
-	double price = get_order();
-	cout << "Price of your order is: " << price << endl;
+	const int NUM_EXECUTIONS = 1000;
+
+	for (int i = 0; i < NUM_EXECUTIONS; ++i)
+	{
+		double price = get_order();
+		cout << "Price of your order is: " << price << "$" << endl;
+	}
 	return 0;
 }
