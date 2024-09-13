@@ -35,17 +35,18 @@ double tip(){
 	// Declaring min and max varaibles to use them in distribution function parametrs. (Better generate integers and them make them doubles...)
 	double min_tip = .01;
 	// * This is Billies Special Pineapple pizza price.
-	double max_tip = .9999;
+	double max_tip = .99;
 	// Using distribution of possible values to limit random generator.
 	std::uniform_real_distribution<> dis(min_tip, max_tip);
 	// Finally, OH I LOVE C++.
 	// Return it to the caller for future use.
 	double price = dis(gen);
 	// Here we first move decimal left, round and than move back.
-	return std::round(price * 100.0) / 100.0;
+	//return std::round(price * 100.0) / 100.0;
+	return price;
 }
 
-double add_tip(double base_price, double add_tip){
-	double tip_price = base_price + (base_price * add_tip);
-	return tip_price;	
+double add_tip(double base_price, double tip){
+	double tip_price = base_price + (base_price * tip);
+	return std::round(tip_price * 100) / 100;	
 }

@@ -1,6 +1,7 @@
 ﻿//write include statements
 #include "hwexpressions.h"
 #include <iostream>
+#include <iomanip>
 
 //write namespace using statement for cout
 using std::cout;
@@ -16,10 +17,10 @@ int main()
 		double price_tax = add_tax(price);
 		double tips = tip();
 		double price_tax_tip = add_tip(price_tax, tips);
-		cout << "Price of your order is: " << price << "$" << endl;
-		cout << "Price of your order with tax is: " << price_tax << "$" << endl;
-		cout << "Price of your order with tax and tip is: " << price_tax_tip << "$" << endl;
-		cout << "Tip: " << tips << "$" << endl;
+		cout << "Price of your order is: " <<  std::fixed << std::setprecision(2) << price << "$" << endl;
+		cout << "Price of your order with tax is: " << std::fixed << std::setprecision(2) << price_tax << "$" << endl;
+		cout << "Price of your order with tax and tip is: " << std::fixed << std::setprecision(2) << price_tax_tip << "$" << endl;
+		cout << "Tip: " << (int) (tips * 100) << "%" << endl;
 	}
 
 	return 0;
