@@ -20,7 +20,7 @@ int main()
 		cout << "Price of your order is: " <<  std::fixed << std::setprecision(2) << price << "$" << endl;
 		cout << "Price of your order with tax is: " << std::fixed << std::setprecision(2) << price_tax << "$" << endl;
 		cout << "Price of your order with tax and tip is: " << std::fixed << std::setprecision(2) << price_tax_tip << "$" << endl;
-		cout << "Tip: " << (int) (tips * 100) << "%" << endl;
+		cout << "Tip: " << std::fixed << std::setprecision(0) << tips << "%" << endl;
 	}
 
 	return 0;
