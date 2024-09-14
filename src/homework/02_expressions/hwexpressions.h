@@ -6,10 +6,14 @@
 
 double get_order();
 
-// Then we add tax.
+// Add tax to his food.
 
 double add_tax(double base_price);
 
+// Enforce unreasoned tips.
+
 double tip();
+
+// Sum it up.
 
 double add_tip(double base_price, double add_tip);
