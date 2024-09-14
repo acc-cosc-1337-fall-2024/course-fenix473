@@ -35,7 +35,7 @@ TEST_CASE("Price Sample 2")
 
 TEST_CASE("Price Sample 3")
 {
-	// Minimum order, 
+	// Minimum order is 3.99 (Diet coke no ice).
 	REQUIRE(4.26 == add_tax(3.99));
 	// No tip.
 	REQUIRE(117.48 == add_tip(117.48,0));
