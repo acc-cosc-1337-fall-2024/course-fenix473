@@ -4,7 +4,9 @@
 
 //write using statements
 using std::cout;
+using std::cin;
 
+// PLS NOTE, ONLY NUMBERS SUPPORTED IN THE MENU. Inputting  character will result in a loop.
 
 // Main function
 int main() 
@@ -18,6 +20,19 @@ int main()
 		choice = user_input();
 		// Passing choice to manager, so it can call appropriate function
 		manager(choice);
+
+		// Double checking if user wants to quit.
+		
+		if (choice == 3){
+			int quiting;
+        	cout << "Are you sure you want to quit?\nInput 1 to quit.\nInput 0 to return.\n";
+        	cin >> quiting;
+        	if (quiting != 1 ){
+				// Resetting the choice and using continue to go back to the loop.
+            	choice = 0;
+				continue;
+				}	
+			}
 	// Loop condition
 	} while (choice != 3);
 	return 0;
