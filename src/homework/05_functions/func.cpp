@@ -5,6 +5,7 @@ using std::string;
 //add function code here
 
 double get_gc_content(const string& dna){
+
     char target_C = 'C'; 
     char target_G = 'G';
     int dna_length = dna.length();
@@ -19,3 +20,16 @@ double get_gc_content(const string& dna){
     return gc_content;
 
 }
+
+
+string reverse_string(string dna){
+
+    string reversed = "";
+    int i = dna.length() - 1;
+    while (i >= 0 ){
+        reversed += dna[i];
+        i --;
+    }
+    return reversed;
+}
+

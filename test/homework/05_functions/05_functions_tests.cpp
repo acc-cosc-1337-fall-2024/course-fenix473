@@ -14,3 +14,11 @@ TEST_CASE("GC Percentage"){
 TEST_CASE("GC Percentage 2"){
 	REQUIRE(get_gc_content("CGCTATAG") == .50);
 }
+
+TEST_CASE("Reversed 1"){
+	REQUIRE(reverse_string("AGCTATAG") == "GATATCGA");
+}
+
+TEST_CASE("Reversed 2"){
+	REQUIRE(reverse_string("CGCTATAG") == "GATATCGC");
+}
