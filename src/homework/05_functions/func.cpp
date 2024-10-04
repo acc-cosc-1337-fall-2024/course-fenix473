@@ -18,5 +18,4 @@ double get_gc_content(const string& dna){
     double gc_content = static_cast<double>(match)/dna_length;
     return gc_content;
 
-
 }
