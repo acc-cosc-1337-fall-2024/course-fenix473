@@ -2,8 +2,10 @@
 #include"func.h"
 #include<string>
 
+
 using std::cout;
 using std::cin;
+
 
 // Debugging trail :)
 // int main() 

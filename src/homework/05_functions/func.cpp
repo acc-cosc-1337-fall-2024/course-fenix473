@@ -66,10 +66,12 @@ string get_dna_compliment(string dna){
 // Menu managment
 
 #include<iostream>
+#include<iomanip>
 
 using std::endl;
 using std::cin;
 using std::cout;
+using std::setw;
 
 int user_input(){
     int choice;
@@ -99,9 +101,9 @@ void manager(int num){
         string user_value;
         cout << "Please, input your DNA sequence. A,G,C,T only.\n";
         cin >> user_value;
-        
+
         result = get_gc_content(user_value) * 100;
-        cout << user_value << " Your GC values is: " << result << '%' << endl;
+        cout << user_value << " Your GC values is: " << "\033[33m" << result << '%' << "\033[0m" << endl;
         break;
     }
     // Case 2 is responsible for gsc handling.
@@ -112,7 +114,7 @@ void manager(int num){
         cout << "Please, input your DNA sequence. A,G,C,T only.\n";
         cin >> user_value1;
         result = get_dna_compliment(user_value1);
-        cout << "Your compliment DNA sequence is: " << result << endl;
+        cout << "Your compliment DNA sequence is: " << "\033[33m" << result << "\033[0m" << endl;
         break;
     }
     // Else or user selected 3.
