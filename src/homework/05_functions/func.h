@@ -9,4 +9,8 @@ string get_dna_compliment(string dna);
 
 string reverse_string(string dna);
 
+// Menu functionality 
 
+int user_input();
+
+void manager(int num);

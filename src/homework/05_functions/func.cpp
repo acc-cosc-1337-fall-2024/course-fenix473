@@ -62,3 +62,62 @@ string get_dna_compliment(string dna){
     }
     return compliment;
 }
+
+// Menu managment
+
+#include<iostream>
+
+using std::endl;
+using std::cin;
+using std::cout;
+
+int user_input(){
+    int choice;
+
+    // Offer choices and store value.
+    cout << "1. Get GC content.\n2. Get DNA Complement.\n3. Quit \n";
+    cin >> choice;
+    
+    return choice;
+}
+
+
+
+void manager(int num){
+    // Using switch to user cases.
+    switch (num)
+    {
+    
+
+    // In both cases we take user values within case.    
+    // Call the math function and output results.
+    
+    // Case 1 is a factorial finder.
+
+    case 1: {
+        double result;
+        string user_value;
+        cout << "Please, input your DNA sequence. A,G,C,T only.\n";
+        cin >> user_value;
+        
+        result = get_gc_content(user_value) * 100;
+        cout << user_value << " Your GC values is: " << result << '%' << endl;
+        break;
+    }
+    // Case 2 is responsible for gsc handling.
+
+    case 2: {
+        string result;
+        string user_value1;
+        cout << "Please, input your DNA sequence. A,G,C,T only.\n";
+        cin >> user_value1;
+        result = get_dna_compliment(user_value1);
+        cout << "Your compliment DNA sequence is: " << result << endl;
+        break;
+    }
+    // Else or user selected 3.
+
+    default:
+        break;
+    }
+}
