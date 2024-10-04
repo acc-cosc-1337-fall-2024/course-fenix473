@@ -33,3 +33,32 @@ string reverse_string(string dna){
     return reversed;
 }
 
+
+string get_dna_compliment(string dna){
+    string reversed = reverse_string(dna);
+    string compliment = "";
+    for (char nucleotide : reversed){
+        switch (nucleotide)
+        {
+        case 'A':
+            compliment += 'T';
+            break;
+        
+        case 'T':
+            compliment += 'A';
+            break;
+        
+        case 'C':
+            compliment += 'G';
+            break;
+        
+        case 'G':
+            compliment += 'C';
+            break;
+        
+        default:
+            break;
+        }
+    }
+    return compliment;
+}

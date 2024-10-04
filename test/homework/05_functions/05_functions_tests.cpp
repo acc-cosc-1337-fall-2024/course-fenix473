@@ -22,3 +22,11 @@ TEST_CASE("Reversed 1"){
 TEST_CASE("Reversed 2"){
 	REQUIRE(reverse_string("CGCTATAG") == "GATATCGC");
 }
+
+TEST_CASE("Compliment 1"){
+	REQUIRE(get_dna_compliment("AAAACCCGGT") == "ACCGGGTTTT");
+}
+
+TEST_CASE("Compliment 2"){
+	REQUIRE(get_dna_compliment("CCCGGAAAAT") == "ATTTTCCGGG");
+}
