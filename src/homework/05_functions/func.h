@@ -3,6 +3,8 @@
 
 using std::string;
 
+// Functional functions
+
 double get_gc_content(const string& dna);
 
 string get_dna_compliment(string dna);
