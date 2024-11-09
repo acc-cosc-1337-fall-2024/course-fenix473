@@ -69,7 +69,7 @@ bool TicTacToe::game_over(){
     }
    
     if(check_board_full()) {
-        player = "C";
+        winner = "C";
         return true;
    }
 
@@ -78,6 +78,7 @@ bool TicTacToe::game_over(){
 
 void TicTacToe::start_game(string first_player){
     player = first_player;
+    winner = "";
     clear_board();
     display_board();
 }
@@ -174,12 +175,7 @@ bool TicTacToe::check_row_win(){
 }
 
 void TicTacToe::set_winner(){
-    if(player == "X") {
-        player = "O";
-    }
-    else {
-        player = "X"; 
-    }
+    winner = player;
 }
 
 void TicTacToe::clear_board(){

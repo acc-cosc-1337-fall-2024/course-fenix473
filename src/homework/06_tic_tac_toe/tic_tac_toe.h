@@ -17,7 +17,7 @@ public:
     string const get_player();
     void const display_board();
     string const get_current_player() const { return player; }
-    
+    string get_winner() const { return winner;}
 
 private:
     vector<string> pegs{9, " "};
