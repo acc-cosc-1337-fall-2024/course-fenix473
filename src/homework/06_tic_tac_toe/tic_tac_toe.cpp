@@ -175,7 +175,12 @@ bool TicTacToe::check_row_win(){
 }
 
 void TicTacToe::set_winner(){
-    winner = player;
+    if (player == "x") {
+        winner = "o";
+    }
+    else {
+        winner = "x";
+    }
 }
 
 void TicTacToe::clear_board(){

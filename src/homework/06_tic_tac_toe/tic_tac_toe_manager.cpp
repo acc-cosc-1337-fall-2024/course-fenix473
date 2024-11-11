@@ -20,7 +20,7 @@ void TicTacToeManager::update_winner_count(std::string winner){
         o_win ++;
     }
 
-    else if (winner == "C"){
+    else if (winner == "C" || winner == "c"){
         ties ++;
     }
 }
