@@ -84,8 +84,12 @@ void TicTacToe::start_game(string first_player){
 }
 
 void TicTacToe::mark_board(int position){
-    if (position < 1 || position > 9) {
-        cout << "Invalid position, only between 1 and 9!";
+    // add max size
+
+    int max_position = pegs.size();
+
+    if (position < 1 || position > max_position){
+        cout << "Invalid position, only between 1 and" << max_position << "!";
         return;
     }
     
@@ -110,10 +114,23 @@ string const TicTacToe::get_player(){
     return first_player;
 }
 
-void const TicTacToe::display_board(){
-    for(int i = 0; i < 9; i += 3) {
-        cout << pegs[i] << "|" << pegs[i+1] << "|" << pegs[i+2] << "\n";
-        if(i < 6) cout << "-+-+-\n";
+#include<cmath>
+void const TicTacToe::display_board() {
+    int size = sqrt(pegs.size());  
+    for(int i = 0; i < pegs.size(); i += size) {
+
+        for(int j = 0; j < size - 1; j++) {
+            cout << pegs[i + j] << "|";
+        }
+        cout << pegs[i + size - 1] << "\n";
+
+
+        if(i < pegs.size() - size) {
+            for(int j = 0; j < size - 1; j++) {
+                cout << "-+";
+            }
+            cout << "-\n";
+        }
     }
 }
 
@@ -128,7 +145,9 @@ void TicTacToe::set_next_player(){
 }
 
 bool TicTacToe::check_board_full(){
-    for(int i = 0; i < 9; i++){
+    for(int i = 0; i < pegs.size(); i++)
+    // altering to pegs.size to accomodate for new functionality.
+    {
         if (pegs[i] == " "){
             return false;
         
@@ -138,39 +157,14 @@ bool TicTacToe::check_board_full(){
 }
 
 bool TicTacToe::check_column_win(){
-    for (int i = 0; i < 3; i++) {
-        if(pegs[i] != " " && 
-           pegs[i] == pegs[i+3] && 
-           pegs[i] == pegs[i+6]) {
-            return true;
-        }
-    }
     return false;
 }
 
 bool TicTacToe::check_diagonal_win(){
-    if(pegs[0] != " " && 
-       pegs[0] == pegs[4] && 
-       pegs[4] == pegs[8]) {
-        return true;
-    }
-    
-    if(pegs[2] != " " && 
-       pegs[2] == pegs[4] && 
-       pegs[4] == pegs[6]) {
-        return true;
-    }
     return false;
 }
 
 bool TicTacToe::check_row_win(){
-    for (int i = 0; i < 9; i += 3) {
-        if(pegs[i] != " " && 
-           pegs[i] == pegs[i+1] && 
-           pegs[i] == pegs[i+2]) {
-            return true;
-        }
-    }
     return false;
 }
 

@@ -1,5 +1,8 @@
 #include"tic_tac_toe.h"
+#include"tic_tac_toe_3.h"
+#include"tic_tac_toe_4.h"
 #include"tic_tac_toe_manager.h"
+#include<memory>
 #include<string>
 #include<iostream>
 
@@ -12,17 +15,28 @@ int main() {
 	string play = "Y";
 
 	while (play == "Y" || play == "y"){
-		auto game = TicTacToe();
-		string first_player = game.get_player();
-		game.start_game(first_player);
+		std::unique_ptr<TicTacToe> game;
+		int game_type;
+		
+		cout << "3x3 or 4x4? 3/4.\n";
+		cin >> game_type;
+
+		if (game_type == 3){
+			game = std::make_unique<TicTacToe3>();
+		}
+		else if (game_type == 4) {
+			game = std::make_unique<TicTacToe4>();
+		}
+
+		string first_player = game -> get_player();
+		game -> start_game(first_player);
 
 		int position;
-
 		do {
 			cout << "Enter position from 1-9: ";
 			cin >> position;
-			game.mark_board(position);
-		} while (!game.game_over());
+			game -> mark_board(position);
+		} while (!game -> game_over());
 		manager.save_game(game);
 
 	int o, x, t;

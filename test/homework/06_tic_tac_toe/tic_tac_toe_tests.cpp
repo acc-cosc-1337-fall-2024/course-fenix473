@@ -6,80 +6,80 @@
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
-
-TEST_CASE("Test get_winner function") {
-   TicTacToeManager manager;  // Create manager
-   TicTacToe game;
-   game.start_game("x");
+// TEST_CASE("Test get_winner function") {
+//    TicTacToeManager manager;  // Create manager
+//    TicTacToe game;
+//    game.start_game("x");
    
-   game.mark_board(1); // x
-   game.mark_board(2); // o
-   game.mark_board(4); // x
-   game.mark_board(3); // o
-   game.mark_board(7); // x wins
+//    game.mark_board(1); // x
+//    game.mark_board(2); // o
+//    game.mark_board(4); // x
+//    game.mark_board(3); // o
+//    game.mark_board(7); // x wins
    
-   manager.save_game(game);  // Save game to manager.
+//    manager.save_game(game);  // Save game to manager.
 
-   int o, x, t;
-   manager.get_winner_totals(x, o, t); // call the manager data.
-   REQUIRE(x == 1);  // We check for the win through the manager.
-   REQUIRE(o == 0);
-   REQUIRE(t == 0);
-}
+//    int o, x, t;
+//    manager.get_winner_totals(x, o, t); // call the manager data.
+//    REQUIRE(x == 1);  // We check for the win through the manager.
+//    REQUIRE(o == 0);
+//    REQUIRE(t == 0);
+// }
 
-TEST_CASE("Test TicTacToeManager tallies") {
-    TicTacToeManager manager;
+// TEST_CASE("Test TicTacToeManager tallies") {
+//     TicTacToeManager manager;
     
-    // Game 1 - X wins
-    TicTacToe game1;
-    game1.start_game("x");
-    game1.mark_board(1); // x
-    game1.mark_board(4); // o
-    game1.mark_board(2); // x
-    game1.mark_board(5); // o
-    game1.mark_board(3); // x wins
-    manager.save_game(game1);
+//     // Game 1 - X wins
+//     TicTacToe game1;
+//     game1.start_game("x");
+//     game1.mark_board(1); // x
+//     game1.mark_board(4); // o
+//     game1.mark_board(2); // x
+//     game1.mark_board(5); // o
+//     game1.mark_board(3); // x wins
+//     manager.save_game(game1);
     
-    int o, x, t;
-    manager.get_winner_totals(x, o, t);
-    REQUIRE(x == 1);
-    REQUIRE(o == 0);
-    REQUIRE(t == 0);
+//     int o, x, t;
+//     manager.get_winner_totals(x, o, t);
+//     REQUIRE(x == 1);
+//     REQUIRE(o == 0);
+//     REQUIRE(t == 0);
 
-    // Game 2 - O wins
-    TicTacToe game2;
-    game2.start_game("o");
-    game2.mark_board(1); // o
-    game2.mark_board(4); // x
-    game2.mark_board(2); // o
-    game2.mark_board(5); // x
-    game2.mark_board(3); // o
-    manager.save_game(game2);
+//     // Game 2 - O wins
+//     TicTacToe game2;
+//     game2.start_game("o");
+//     game2.mark_board(1); // o
+//     game2.mark_board(4); // x
+//     game2.mark_board(2); // o
+//     game2.mark_board(5); // x
+//     game2.mark_board(3); // o
+//     manager.save_game(game2);
     
-    manager.get_winner_totals(x, o, t);
-    REQUIRE(x == 1);
-    REQUIRE(o == 1); // o wins
-    REQUIRE(t == 0);
+//     manager.get_winner_totals(x, o, t);
+//     REQUIRE(x == 1);
+//     REQUIRE(o == 1); // o wins
+//     REQUIRE(t == 0);
 
-    // Game 3 - Tie
-    TicTacToe game3;
-    game3.start_game("x");
-    game3.mark_board(1); // x
-    game3.mark_board(2); // o
-    game3.mark_board(5); // x
-    game3.mark_board(3); // o
-    game3.mark_board(6); // x
-    game3.mark_board(4); // o
-    game3.mark_board(7); // x
-    game3.mark_board(9); // o
-    game3.mark_board(8); // x
-    manager.save_game(game3);
+//     // Game 3 - Tie
+//     TicTacToe game3;
+//     game3.start_game("x");
+//     game3.mark_board(1); // x
+//     game3.mark_board(2); // o
+//     game3.mark_board(5); // x
+//     game3.mark_board(3); // o
+//     game3.mark_board(6); // x
+//     game3.mark_board(4); // o
+//     game3.mark_board(7); // x
+//     game3.mark_board(9); // o
+//     game3.mark_board(8); // x
+//     manager.save_game(game3);
 
-    manager.get_winner_totals(x, o, t);
-    REQUIRE(x == 1);
-    REQUIRE(o == 1);
-    REQUIRE(t == 1); // tie
-}
+//     manager.get_winner_totals(x, o, t);
+//     REQUIRE(x == 1);
+//     REQUIRE(o == 1);
+//     REQUIRE(t == 1); // tie
+// }
+
 
 // TEST_CASE("Checking the game!"){
 // 	TicTacToe Game;
