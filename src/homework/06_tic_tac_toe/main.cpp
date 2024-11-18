@@ -37,7 +37,7 @@ int main() {
 			cin >> position;
 			game -> mark_board(position);
 		} while (!game -> game_over());
-		manager.save_game(game);
+		manager.save_game(std::move(game));
 
 	int o, x, t;
 

@@ -16,7 +16,7 @@ private:
     void update_winner_count(std::string vinner);
 
 public:
-    void save_game(std::unique_ptr<TicTacToe>& game);
+    void save_game(std::unique_ptr<TicTacToe> game);
     void get_winner_totals(int& ,int& ,int&);
     void display_games();
 };

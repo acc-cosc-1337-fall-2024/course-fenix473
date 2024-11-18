@@ -1,84 +1,112 @@
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.hpp"
+#include<memory>
 #include"tic_tac_toe.h"
 #include"tic_tac_toe_manager.h"
+#include"tic_tac_toe_3.h"
+#include"tic_tac_toe_4.h"
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
-// TEST_CASE("Test get_winner function") {
-//    TicTacToeManager manager;  // Create manager
-//    TicTacToe game;
-//    game.start_game("x");
+
+TEST_CASE("Test get_winner function") {
+   TicTacToeManager manager;  // Create manager
+   auto game = std::make_unique<TicTacToe3>();
+
+   game->start_game("x");
    
-//    game.mark_board(1); // x
-//    game.mark_board(2); // o
-//    game.mark_board(4); // x
-//    game.mark_board(3); // o
-//    game.mark_board(7); // x wins
+   game->mark_board(1); // x
+   game->mark_board(2); // o
+   game->mark_board(4); // x
+   game->mark_board(3); // o
+   game->mark_board(7); // x wins
    
-//    manager.save_game(game);  // Save game to manager.
+   manager.save_game(std::move(game));  // Save game to manager.
 
-//    int o, x, t;
-//    manager.get_winner_totals(x, o, t); // call the manager data.
-//    REQUIRE(x == 1);  // We check for the win through the manager.
-//    REQUIRE(o == 0);
-//    REQUIRE(t == 0);
-// }
+   int o, x, t;
+   manager.get_winner_totals(x, o, t); // call the manager data.
+   REQUIRE(x == 1);  // We check for the win through the manager.
+   REQUIRE(o == 0);
+   REQUIRE(t == 0);
+}
 
-// TEST_CASE("Test TicTacToeManager tallies") {
-//     TicTacToeManager manager;
+TEST_CASE("Test TicTacToeManager tallies") {
+    TicTacToeManager manager;
     
-//     // Game 1 - X wins
-//     TicTacToe game1;
-//     game1.start_game("x");
-//     game1.mark_board(1); // x
-//     game1.mark_board(4); // o
-//     game1.mark_board(2); // x
-//     game1.mark_board(5); // o
-//     game1.mark_board(3); // x wins
-//     manager.save_game(game1);
+    // Game 1 - X wins
+    auto game1 = std::make_unique<TicTacToe3>();
+    game1->start_game("x");
+    game1->mark_board(1); // x
+    game1->mark_board(4); // o
+    game1->mark_board(2); // x
+    game1->mark_board(5); // o
+    game1->mark_board(3); // x wins
+    manager.save_game(std::move(game1));
     
-//     int o, x, t;
-//     manager.get_winner_totals(x, o, t);
-//     REQUIRE(x == 1);
-//     REQUIRE(o == 0);
-//     REQUIRE(t == 0);
+    int o, x, t;
+    manager.get_winner_totals(x, o, t);
+    REQUIRE(x == 1);
+    REQUIRE(o == 0);
+    REQUIRE(t == 0);
 
-//     // Game 2 - O wins
-//     TicTacToe game2;
-//     game2.start_game("o");
-//     game2.mark_board(1); // o
-//     game2.mark_board(4); // x
-//     game2.mark_board(2); // o
-//     game2.mark_board(5); // x
-//     game2.mark_board(3); // o
-//     manager.save_game(game2);
+    // Game 2 - O wins
+    auto game2 = std::make_unique<TicTacToe3>();
+    game2->start_game("o");
+    game2->mark_board(1); // o
+    game2->mark_board(4); // x
+    game2->mark_board(2); // o
+    game2->mark_board(5); // x
+    game2->mark_board(3); // o
+    manager.save_game(std::move(game2));
     
-//     manager.get_winner_totals(x, o, t);
-//     REQUIRE(x == 1);
-//     REQUIRE(o == 1); // o wins
-//     REQUIRE(t == 0);
+    manager.get_winner_totals(x, o, t);
+    REQUIRE(x == 1);
+    REQUIRE(o == 1); // o wins
+    REQUIRE(t == 0);
 
-//     // Game 3 - Tie
-//     TicTacToe game3;
-//     game3.start_game("x");
-//     game3.mark_board(1); // x
-//     game3.mark_board(2); // o
-//     game3.mark_board(5); // x
-//     game3.mark_board(3); // o
-//     game3.mark_board(6); // x
-//     game3.mark_board(4); // o
-//     game3.mark_board(7); // x
-//     game3.mark_board(9); // o
-//     game3.mark_board(8); // x
-//     manager.save_game(game3);
+    // Game 3 - Tie
+    auto game3 = std::make_unique<TicTacToe4>();;
+    game3->start_game("x");
+    game3->mark_board(1); // x
+    game3->mark_board(2); // o
+    game3->mark_board(6); // x
+    game3->mark_board(3); // o
+    game3->mark_board(11); // x
+    game3->mark_board(4); // o
+    game3->mark_board(16); // x
+    manager.save_game(std::move(game3));
 
-//     manager.get_winner_totals(x, o, t);
-//     REQUIRE(x == 1);
-//     REQUIRE(o == 1);
-//     REQUIRE(t == 1); // tie
-// }
+    manager.get_winner_totals(x, o, t);
+    REQUIRE(x == 2);
+    REQUIRE(o == 1);
+    REQUIRE(t == 0); // another x win
+
+    auto game4 = std::make_unique<TicTacToe4>();;
+    game4->start_game("x");
+    game4->mark_board(1); // x
+    game4->mark_board(3); // o
+    game4->mark_board(2); // x
+    game4->mark_board(4); // o
+    game4->mark_board(7); // x
+    game4->mark_board(5); // o
+    game4->mark_board(8); // x
+    game4->mark_board(6); // o
+    game4->mark_board(10); // x
+    game4->mark_board(9); // o
+    game4->mark_board(11); // x
+    game4->mark_board(13); // o
+    game4->mark_board(14); // x
+    game4->mark_board(16); // o
+    game4->mark_board(12); // x
+    game4->mark_board(15); // o
+    manager.save_game(std::move(game4));
+
+    manager.get_winner_totals(x, o, t);
+    REQUIRE(x == 2);
+    REQUIRE(o == 1);
+    REQUIRE(t == 1); // tie
+}
 
 
 // TEST_CASE("Checking the game!"){
